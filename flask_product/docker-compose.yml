@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql-db
+      - redis
+      - celery
+    environment:
+      SQLALCHEMY_DATABASE_URI: "mysql://root:root@127.0.0.1:3306/db"
+      CELERY_BROKER_URL: "redis://127.0.0.1:6379/"
+      CELERY_RESULT_BACKEND: "redis://127.0.0.1:6379/0"
+    volumes:
+      - ./flask_product:/app
+
+  mysql-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  redis:
+    image: redis:6.0
+
+  celery:
+    build:
+      context: .
+      dockerfile: Dockerfil
+    command: celery -A your_celery_app_name worker --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+      - ./flask_product:/app
+
+volumes:
+  mysql-data:

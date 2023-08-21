@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <p><a href="{{ url_for('addresses') }}">Перейти до адрес</a></p>
+        <p><a href="{{ url_for('orders') }}">Перейти до замовлень</a></p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Назва товару</th>
+                    <th scope="col">Колір</th>
+                    <th scope="col">Вага</th>
+                    <th scope="col">Ціна</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.color }}</td>
+                        <td>{{ product.weight }}</td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

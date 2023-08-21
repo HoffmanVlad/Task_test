@@ -1,0 +1,4 @@
+/* Стилі для статусів замовлень */
+.Processing { color: orange; }
+.Done { color: green; }
+.Canceled { color: red; }
