@@ -1,8 +1,13 @@
 Запуск:
-1.python m venv venv
+1.python -m venv venv
 2.venv\scripts\activate.bat
 3.pip install -r reqirements.txt
-4.flask run --reload 
+4.запустить mysql и изменить данные в app.py
+5.запустить редис и изменить данные в app.py
+6.flask run --reload
+7.запустить в другой консоли Celery: celery -A app.client worker --loglevel=info
+
+
 
 
 Використовувати стек:
