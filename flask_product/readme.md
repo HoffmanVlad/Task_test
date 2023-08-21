@@ -1,3 +1,10 @@
+Запуск:
+1.python m venv venv
+2.venv\scripts\activate.bat
+3.pip install -r reqirements.txt
+4.flask run --reload 
+
+
 Використовувати стек:
 - Flask
 - Flask-Admin
@@ -96,3 +103,5 @@ def get_order_status_endpoint(order_id):
 Из за проблем с компьютером, реализовать не смог, но набросал docker-compose.yaml и Dockerfile в их ввиде , не смогу запустить у себя на компьютере 
 
 10. - код завдання викласти в відкритий git репозиторій
+   
+    
